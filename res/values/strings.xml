@@ -3,7 +3,7 @@
 
     <string name="app_name">Giang2-CountClicker</string>
     <string name="action_settings">Settings</string>
-    <string name="counter_summary">Counter Summaries</string>
+    <string name="counter_summary">Summary</string>
     <string name="edit_counters">Edit Counters</string>
     <string name="counter_name">Enter New Counter name here</string>
     <string name="new_counter">Add New Counter</string>
@@ -16,4 +16,6 @@
 	<string name="reset_counter">Reset Counter</string>
 	<string name="rename_old_counter">Enter new name for counter</string>
 	<string name="delete_counter">Delete Counter</string>
+	<string name="order_name">Order by Name</string>
+	<string name="order_count">Order by Count</string>
 </resources>

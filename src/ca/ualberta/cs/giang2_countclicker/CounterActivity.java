@@ -29,6 +29,8 @@ public class CounterActivity extends Activity {
 	protected void onResume() {
 		super.onResume();
 
+		//Check if there are any information being passed from main
+		//activities 
 		Intent intent = getIntent();
 		Bundle bundle = intent.getExtras();
 		if (bundle != null) {
@@ -36,12 +38,14 @@ public class CounterActivity extends Activity {
 			counterPosition = (int) bundle.getInt("position");
 		}
 		
+		
 		counterNameTitle = (TextView) findViewById(R.id.counterNameTitle);
 		counterCount = (TextView) findViewById(R.id.counterCounts);
 
 		counterNameTitle.setText(counter.getName());
 		counterCount.setText(Integer.toString(counter.getCount()));
 
+		//Increment the counts for the counter that is passed to Counter Activity
 		Button incrementbutton = (Button) findViewById(R.id.incrementButton);
 		incrementbutton.setOnClickListener(new View.OnClickListener() {
 			@Override
@@ -51,6 +55,9 @@ public class CounterActivity extends Activity {
 			}
 		});
 		
+		
+		//Rename the Counter from the text that is provided by the user in the
+		//EditText field
 		Button renameButton = (Button) findViewById(R.id.renameCounter);
 		renameText = (EditText) findViewById(R.id.renameTextBody);
 		renameButton.setOnClickListener(new View.OnClickListener() {
@@ -64,12 +71,16 @@ public class CounterActivity extends Activity {
 			}
 		});
 		
+		//Reset the counter to zero
 		Button resetButton  = (Button) findViewById(R.id.resetCounter);
 		resetButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
-				//http://www.askingbox.com/tip/android-programming-yes-no-dialog-box
+				/* Code for yes/no dialog box used from 
+				 * - http://www.askingbox.com/tip/android-programming-yes-no-dialog-box
+				 * Makes sure that user wants to reset the counter
+				 */
 				AlertDialog.Builder builder = new AlertDialog.Builder(CounterActivity.this);
 				 
 				builder.setTitle("Reset Counter");
@@ -80,7 +91,6 @@ public class CounterActivity extends Activity {
 				 
 				   @Override
 				   public void onClick(DialogInterface dialog, int which) {
-				         
 				        // Code that is executed when clicking YES
 					   	String oldname = counter.getName();
 						counter = new CounterModel(oldname);
@@ -90,70 +100,53 @@ public class CounterActivity extends Activity {
 				 
 				});
 				 
-				 
 				builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-				 
+		
 				   @Override
 				   public void onClick(DialogInterface dialog, int which) {
-				 
 				        // Code that is executed when clicking NO
-					   
 				        dialog.dismiss();
 				   }
 				 
 				});
-				 
-				 
 				AlertDialog alert = builder.create();
 				alert.show();
-					
-
 			}
 		});
 		
+		//Delete Counter
 		Button deleteButton = (Button) findViewById(R.id.deleteCounter);
 		deleteButton.setOnClickListener(new View.OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
-				
-				//http://www.askingbox.com/tip/android-programming-yes-no-dialog-box
+				/* Code for yes/no dialog box used from 
+				 * - http://www.askingbox.com/tip/android-programming-yes-no-dialog-box
+				 * Makes sure that user wants to delete the counter
+				 */
 				AlertDialog.Builder builder = new AlertDialog.Builder(CounterActivity.this);
 				 
 				builder.setTitle("Delete Counter");
 				builder.setMessage("Do you want to delete this Counter?");
 				 
-				 
 				builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-				 
 				   @Override
 				   public void onClick(DialogInterface dialog, int which) {
-				         
 				        // Code that is executed when clicking YES
 						counterType = "DeleteCounter";
 						finish();
-				        
 				   }
-				 
 				});
-				 
 				 
 				builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-				 
 				   @Override
 				   public void onClick(DialogInterface dialog, int which) {
-				 
 				        // Code that is executed when clicking NO
-					   
 				        dialog.dismiss();
 				   }
-				 
-				});
-				 
-				 
+				});				 
 				AlertDialog alert = builder.create();
-				alert.show();
-				
+				alert.show();				
 			}
 		});
 	}

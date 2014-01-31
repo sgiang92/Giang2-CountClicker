@@ -22,10 +22,15 @@ import com.google.gson.Gson;
 
 public class MainActivity extends Activity {
 
+	/*
+	 * Custom ArrayAdapter that is used to display
+	 * the arraylist to the listview
+	 */
 	private CounterListAdapter counterListAdapter;
 
 	private CounterListModel counterList;
-
+	
+	//file that the application saves json object to
 	private static final String FILENAME = "file.json";
 	private ListView countListView;
 	private EditText newCounterName;
@@ -37,10 +42,10 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 
 		newCounterName = (EditText) findViewById(R.id.textbody);
+		
+		//Adds a new counter to the list
 		Button newCounterButton = (Button) findViewById(R.id.newcounter);
 		countListView = (ListView) findViewById(R.id.counterList);
-		// Button counterSummary = (Button) findViewById(R.id.summary);
-
 		newCounterButton.setOnClickListener(new View.OnClickListener() {
 
 			@Override
@@ -59,7 +64,8 @@ public class MainActivity extends Activity {
 	protected void onStart() {
 		// TODO Auto-generated method stub
 		super.onStart();
-
+		
+		//Loads in a existing list and displays it to the listView
 		counterList = new CounterListModel();
 		counterList = loadFromFile();
 		counterListAdapter = new CounterListAdapter(this, R.layout.list_item,
@@ -125,7 +131,12 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
+	
+	/*
+	 * Loads json object from a saved file
+	 * json object is converted to a counterListModel
+	 * which holds a counter List
+	 */
 	public CounterListModel loadFromFile() {
 		Gson gson = new Gson();
 		CounterListModel savedCounters = new CounterListModel();
@@ -155,7 +166,10 @@ public class MainActivity extends Activity {
 		return savedCounters;
 
 	}
-
+	
+	/*
+	 * Saves the counterListModel as a json object
+	 */
 	private void saveInFile(CounterListModel countersToSave) {
 		try {
 			FileOutputStream fos = openFileOutput(FILENAME,
