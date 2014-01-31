@@ -118,6 +118,7 @@ public class MainActivity extends Activity {
 				});
 
 	}
+	//http://java67.blogspot.ca/2012/10/how-to-sort-object-in-java-comparator-comparable-example.html
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
