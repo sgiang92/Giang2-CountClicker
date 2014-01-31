@@ -10,5 +10,9 @@
     <string name="save">Save</string>
     <string name="select_counter">Select a counter</string>
     <string name="title_activity_counter_clicker">CounterClickerActivity</string>
-
+    <string name="title_activity_counter">CounterActivity</string>
+    <string name="increment_counter">Increment</string>
+	<string name="rename_counter">Rename Counter</string>
+	<string name="reset_counter">Reset Counter</string>
+	<string name="rename_old_counter">Enter new name for counter</string>
 </resources>

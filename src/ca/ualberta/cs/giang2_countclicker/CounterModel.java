@@ -1,8 +1,13 @@
 package ca.ualberta.cs.giang2_countclicker;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CounterModel {
+public class CounterModel implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String name;
 	private ArrayList<SingleCountModel> countList;
 	

@@ -9,9 +9,11 @@ import java.io.InputStreamReader;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
@@ -25,17 +27,18 @@ public class MainActivity extends Activity {
 	private CounterListModel counterList;
 
 	private static final String FILENAME = "file.json";
-	private ListView countList;
+	private ListView countListView;
 	private EditText newCounterName;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 
 		newCounterName = (EditText) findViewById(R.id.textbody);
 		Button newCounterButton = (Button) findViewById(R.id.newcounter);
-		countList = (ListView) findViewById(R.id.counterList);
+		countListView = (ListView) findViewById(R.id.counterList);
 		// Button counterSummary = (Button) findViewById(R.id.summary);
 
 		newCounterButton.setOnClickListener(new View.OnClickListener() {
@@ -61,7 +64,46 @@ public class MainActivity extends Activity {
 		counterList = loadFromFile();
 		counterListAdapter = new CounterListAdapter(this, R.layout.list_item,
 				counterList.getCounterList());
-		countList.setAdapter(counterListAdapter);
+		countListView.setAdapter(counterListAdapter);
+
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+
+		Intent intent = getIntent();
+		Bundle bundle = intent.getExtras();
+		if (bundle != null) {
+			CounterModel counter = (CounterModel) bundle
+					.getSerializable("CounterModel");
+			int counterPosition = (int) bundle.getInt("position");
+
+			counterList.modCounter(counterPosition, counter);
+			saveInFile(counterList);
+			counterListAdapter.notifyDataSetChanged();
+			
+		}
+
+		countListView
+				.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+					@Override
+					public void onItemClick(AdapterView<?> parent, View view,
+							int position, long id) {
+						// TODO Auto-generated method stub
+						CounterModel selectedCounter = counterList
+								.get(position);
+						Intent intent = new Intent(MainActivity.this,
+								CounterActivity.class);
+						Bundle bundle = new Bundle();
+						bundle.putSerializable("CounterModel", selectedCounter);
+						bundle.putInt("position", position);
+						intent.putExtras(bundle);
+						startActivity(intent);
+
+					}
+				});
 
 	}
 

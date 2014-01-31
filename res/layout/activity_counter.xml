@@ -1,0 +1,71 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/counterNameTitle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="40sp" />
+
+    <TextView
+        android:id="@+id/counterCounts"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text=""
+        android:textAlignment="center"
+        android:textSize="50sp" />
+
+    <Button
+        android:id="@+id/incrementButton"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="25dp"
+        android:layout_marginTop="50dp"
+        android:text="@string/increment_counter" />
+
+    <EditText
+        android:id="@+id/renameTextBody"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/rename_old_counter"
+        android:scrollbars="horizontal" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/renameCounter"
+            style="@android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="left"
+            android:layout_weight="1"
+            android:text="@string/rename_counter" />
+
+        <Button
+            android:id="@+id/resetCounter"
+            style="@android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_weight="1"
+            android:text="@string/reset_counter" />
+    </LinearLayout>
+    
+            <Button
+            android:id="@+id/summary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/counter_summary" />
+
+</LinearLayout>

@@ -40,5 +40,9 @@ public class CounterListModel {
 		return counterList.get(index);
 	}
 	
+	public void modCounter(int index,CounterModel counter){
+		counterList.set(index, counter);
+	}
+	
 
 }
