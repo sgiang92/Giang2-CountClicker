@@ -1,3 +1,12 @@
+/*
+ * CounterModel
+ * Written By Steven Giang
+ * 
+ * This is a model of a counter. Each counter has a name 
+ * and a list of counts that is incremented when needed.
+ * The Class is made Serializable so that it can be passed 
+ * between activities. 
+ */
 package ca.ualberta.cs.giang2_countclicker;
 
 import java.io.Serializable;
@@ -32,16 +41,17 @@ public class CounterModel implements Serializable{
 		this.countList = countList;
 	}
 	
+	//Returns the number of counts
 	public int getCount() {
 		return this.countList.size();
 	}
 	
+	//Add a new counter to the list
 	public void addCount() {
 		countList.add(new SingleCountModel());
 	}
 
 	public String getName() {
-		//test comment
 		return name;
 	}
 

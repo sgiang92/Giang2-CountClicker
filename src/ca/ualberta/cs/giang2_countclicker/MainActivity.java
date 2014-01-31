@@ -1,3 +1,16 @@
+/*
+ * MainActivity
+ * Written by Steven Giang
+ * 
+ * This android activity is the main menu of the
+ * application. It will read in any existing data
+ * on a list of counters and display them for the
+ * user. The user can add a new counter or select
+ * from the ones listed to modify. 
+ * 
+ * To save and load data, Gson is used.
+ */
+
 package ca.ualberta.cs.giang2_countclicker;
 
 import java.io.BufferedReader;
@@ -77,11 +90,16 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-
+		/*
+		 * Check to see if there is any data being passed from
+		 * another activity
+		 */
 		Intent intent = getIntent();
 		Bundle bundle = intent.getExtras();
 		if (bundle != null) {
 
+			//if A key DeleteCounter is read, the program will delete the counter
+			//at that position
 			int counterPosition = (int) bundle.getInt("position");
 			if (bundle.containsKey("DeleteCounter")) {
 				counterList.removeCounter(counterPosition);
@@ -101,7 +119,9 @@ public class MainActivity extends Activity {
 			
 
 		}
-
+		
+		//Will get the counter the user wants to modify and pass it to the
+		//Counter Activity
 		countListView
 				.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

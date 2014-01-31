@@ -1,3 +1,10 @@
+/*
+ * CounterListModel
+ * Written By Steven Giang
+ * 
+ * Model for a counter List
+ * Holds a list of counters. 
+ */
 package ca.ualberta.cs.giang2_countclicker;
 
 import java.util.ArrayList;
@@ -36,10 +43,12 @@ public class CounterListModel {
 		counterList.remove(index);
 	}
 
+	//returns a counter that is in the list at a specific index
 	public CounterModel get(int index) {
 		return counterList.get(index);
 	}
 	
+	//modify the information of a counter at a specific index
 	public void modCounter(int index,CounterModel counter){
 		counterList.set(index, counter);
 	}

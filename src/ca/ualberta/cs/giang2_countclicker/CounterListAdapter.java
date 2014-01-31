@@ -1,3 +1,13 @@
+/*
+ * CounterListAdapter
+ * Edited by Steven Giang
+ * 
+ * Used a template from the following websites
+ * http://stackoverflow.com/questions/2265661/how-to-use-arrayadaptermyclass
+ * http://www.ezzylearning.com/tutorial.aspx?tid=1763429
+ * 
+ * This a ArrayAdapter that is written to display the counters to the listView.
+ */
 package ca.ualberta.cs.giang2_countclicker;
 
 import java.util.ArrayList;
@@ -9,9 +19,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
-//http://stackoverflow.com/questions/2265661/how-to-use-arrayadaptermyclass
-//http://www.ezzylearning.com/tutorial.aspx?tid=1763429
 
 public class CounterListAdapter extends ArrayAdapter<CounterModel> {
 

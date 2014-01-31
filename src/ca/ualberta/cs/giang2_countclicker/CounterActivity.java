@@ -1,3 +1,19 @@
+/*
+ * CounterActivity
+ * Written by Steven Giang
+ * 
+ * Some of the code used from the following website:
+ * http://www.askingbox.com/tip/android-programming-yes-no-dialog-box
+ * 
+ * This android activity is in charge of handling all the operations
+ * on the chosen counter from the main activity listView.
+ * Some of the operations include:
+ * 	-Rename - Which renames the counter
+ * 	-Reset 	- Resets the counter to zero
+ * 	-Delete - Delete the counter from the list.
+ * 	-Summary - HAS NOT BE IMPLEMENTED YET
+ */
+
 package ca.ualberta.cs.giang2_countclicker;
 
 import android.app.Activity;
@@ -154,7 +170,11 @@ public class CounterActivity extends Activity {
 	@Override
 	protected void onPause(){
 		super.onPause();
-		
+		/*
+		 * Once the activity is put in the background,
+		 * the information needed to be transfered back to the main activity
+		 * will be added to a bundle.
+		 */
 		Intent intent = new Intent(CounterActivity.this, MainActivity.class);
 		Bundle bundle = new Bundle();
 		bundle.putSerializable(counterType, counter);
