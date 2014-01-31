@@ -75,14 +75,25 @@ public class MainActivity extends Activity {
 		Intent intent = getIntent();
 		Bundle bundle = intent.getExtras();
 		if (bundle != null) {
-			CounterModel counter = (CounterModel) bundle
-					.getSerializable("CounterModel");
-			int counterPosition = (int) bundle.getInt("position");
 
-			counterList.modCounter(counterPosition, counter);
+			int counterPosition = (int) bundle.getInt("position");
+			if (bundle.containsKey("DeleteCounter")) {
+				counterList.removeCounter(counterPosition);
+				
+
+			} 
+			else if (bundle.containsKey("CounterModel"))  {
+
+				CounterModel counter = (CounterModel) bundle
+						.getSerializable("CounterModel");
+				
+
+				counterList.modCounter(counterPosition, counter);
+			}
 			saveInFile(counterList);
 			counterListAdapter.notifyDataSetChanged();
 			
+
 		}
 
 		countListView
@@ -101,6 +112,7 @@ public class MainActivity extends Activity {
 						bundle.putInt("position", position);
 						intent.putExtras(bundle);
 						startActivity(intent);
+						finish();
 
 					}
 				});

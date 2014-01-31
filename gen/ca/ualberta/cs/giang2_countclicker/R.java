@@ -31,20 +31,21 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f09000d;
-        public static final int countListTitle=0x7f090007;
+        public static final int action_settings=0x7f09000e;
+        public static final int countListTitle=0x7f090008;
         public static final int counterCounts=0x7f090001;
-        public static final int counterList=0x7f090008;
+        public static final int counterList=0x7f090009;
         public static final int counterNameTitle=0x7f090000;
+        public static final int deleteCounter=0x7f090007;
         public static final int incrementButton=0x7f090002;
-        public static final int listRowCount=0x7f09000c;
-        public static final int listRowName=0x7f09000b;
-        public static final int newcounter=0x7f09000a;
+        public static final int listRowCount=0x7f09000d;
+        public static final int listRowName=0x7f09000c;
+        public static final int newcounter=0x7f09000b;
         public static final int renameCounter=0x7f090004;
         public static final int renameTextBody=0x7f090003;
         public static final int resetCounter=0x7f090005;
         public static final int summary=0x7f090006;
-        public static final int textbody=0x7f090009;
+        public static final int textbody=0x7f09000a;
     }
     public static final class layout {
         public static final int activity_counter=0x7f030000;
@@ -60,6 +61,7 @@ public final class R {
         public static final int app_name=0x7f060000;
         public static final int counter_name=0x7f060004;
         public static final int counter_summary=0x7f060002;
+        public static final int delete_counter=0x7f06000e;
         public static final int edit_counters=0x7f060003;
         public static final int increment_counter=0x7f06000a;
         public static final int new_counter=0x7f060005;
