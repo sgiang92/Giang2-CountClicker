@@ -15,7 +15,7 @@
     ================================================
     Written by Steven Giang
     Application name: Giang2-CountClicker
-    Apk file location: bin/res/Giang2-CountClick.apk
+    Apk file location: bin/Giang2-CountClick.apk
     
     Application Descripition
     This is a simple counter application that can keep
